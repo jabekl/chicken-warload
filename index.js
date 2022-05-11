@@ -1,4 +1,5 @@
 var mouseCursor = document.querySelector('.cursor');
+var counter = document.getElementById("counter")
 
 function positionChicken() {
     let random1 = Math.floor(Math.random() * 900).toString()
@@ -40,6 +41,7 @@ function explode(x, y) {
       }
       explosion.append(elm);
     }
+    counter.innerText = Number(counter.innerText) + 1
     positionChicken()
   }
   

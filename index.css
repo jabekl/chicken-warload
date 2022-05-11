@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
   cursor: none;
 }
 
@@ -16,6 +22,7 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   pointer-events: none;
+  cursor: none;
 }
 
 .explosion {
@@ -42,4 +49,10 @@
     left: 50%;
     opacity: 1;
   }
+}
+
+#counter-container {
+  font-size: 30px;
+  margin: 20px 20px;
+  position: absolute;
 }
