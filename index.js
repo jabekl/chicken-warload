@@ -1,11 +1,14 @@
 var mouseCursor = document.querySelector('.cursor');
 var counter = document.getElementById("counter")
 
-function positionChicken() {
+function chickenFunction() {
+    // position chicken
     let random1 = Math.floor(Math.random() * (document.documentElement.clientHeight - 50)).toString()
     let random2 = Math.floor(Math.random() * (document.documentElement.clientWidth - 50)).toString()
     chicken.style.top = random1 + "px"
     chicken.style.left = random2 + "px"
+
+
 }
 
 function cursor(e){
@@ -42,7 +45,7 @@ function explode(x, y) {
       explosion.append(elm);
     }
     counter.innerText = Number(counter.innerText) + 1
-    positionChicken()
+    chickenFunction()
   }
   
   function rand(min, max) {
@@ -53,7 +56,7 @@ function explode(x, y) {
 
 window.onload = function() {
     var chicken = document.getElementById("chicken")
-    positionChicken()
+    chickenFunction()
     window.addEventListener('mousemove',cursor)
     chicken.addEventListener("click", (e) => {
         explode(e.pageX, e.pageY);
