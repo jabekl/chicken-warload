@@ -1,5 +1,7 @@
 var mouseCursor = document.querySelector('.cursor');
 var counter = document.getElementById("counter")
+var nameForm = document.getElementById("name-form")
+
 
 function chickenFunction() {
     // position chicken
@@ -11,14 +13,26 @@ function chickenFunction() {
 
 }
 
+function closeNameForm() {
+  nameForm.style.top = "0%";
+  nameForm.style.left = "0%";
+  nameForm.style.transform = "translate(-100%, -100%)"
+  const username = document.getElementById("username-input").value
+  console.log(username)
+}
+
 function cursor(e){
 	mouseCursor.style.top = e.pageY + 'px';
 	mouseCursor.style.left = e.pageX + 'px';
 
 }
 
-
-
+function showNameForm() {
+  nameForm.style.top = "50%";
+  nameForm.style.left = "50%";
+  nameForm.style.transform = "translate(-50%, -50%)"
+}
+  
 function explode(x, y) {
     var particles = 15,
       explosion = $('<div class="explosion"></div>');
@@ -55,6 +69,7 @@ function explode(x, y) {
 
 
 window.onload = function() {
+    showNameForm()  
     var chicken = document.getElementById("chicken")
     chickenFunction()
     window.addEventListener('mousemove',cursor)
