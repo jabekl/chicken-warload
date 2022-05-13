@@ -2,8 +2,8 @@ var mouseCursor = document.querySelector('.cursor');
 var counter = document.getElementById("counter")
 
 function positionChicken() {
-    let random1 = Math.floor(Math.random() * document.documentElement.clientHeight - 50).toString()
-    let random2 = Math.floor(Math.random() * document.documentElement.clientWidth - 50).toString()
+    let random1 = Math.floor(Math.random() * (document.documentElement.clientHeight - 50)).toString()
+    let random2 = Math.floor(Math.random() * (document.documentElement.clientWidth - 50)).toString()
     chicken.style.top = random1 + "px"
     chicken.style.left = random2 + "px"
 }
