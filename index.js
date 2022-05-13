@@ -2,15 +2,33 @@ var mouseCursor = document.querySelector('.cursor');
 var counter = document.getElementById("counter")
 var nameForm = document.getElementById("name-form")
 
+var SETNAME = false
 
 function chickenFunction() {
-    // position chicken
-    let random1 = Math.floor(Math.random() * (document.documentElement.clientHeight - 50)).toString()
-    let random2 = Math.floor(Math.random() * (document.documentElement.clientWidth - 50)).toString()
-    chicken.style.top = random1 + "px"
-    chicken.style.left = random2 + "px"
+  chicken.style.opacity = 1;
+  chicken.addEventListener("click", (e) => {
+    explode(e.pageX, e.pageY);
+  })
+  // position chicken
+  let random1 = Math.floor(Math.random() * (document.documentElement.clientHeight - 50)).toString()
+  let random2 = Math.floor(Math.random() * (document.documentElement.clientWidth - 50)).toString()
+  chicken.style.top = random1 + "px"
+  chicken.style.left = random2 + "px"
 
+}
 
+function getTop3() {
+  //let url = `http://${window.location.href}:5000/`
+  let windowUrl = window.location.href.split(":")
+  let url = windowUrl[0] + ":" + windowUrl[1] + ":5000/top-3"
+  console.log(url)
+  fetch(url)
+  .then(response => response.json())
+  .then(function(data) {
+    console.log(data)
+    for(let i = 0; i < data.length; i++){
+      document.getElementById(`top${i + 1}`).innerText = data[i]
+  }});
 }
 
 function closeNameForm() {
@@ -18,7 +36,10 @@ function closeNameForm() {
   nameForm.style.left = "0%";
   nameForm.style.transform = "translate(-100%, -100%)"
   const username = document.getElementById("username-input").value
-  console.log(username)
+  getTop3()
+  mouseCursor.style.opacity = 1;
+  window.addEventListener('mousemove',cursor)
+  chickenFunction()
 }
 
 function cursor(e){
@@ -31,6 +52,7 @@ function showNameForm() {
   nameForm.style.top = "50%";
   nameForm.style.left = "50%";
   nameForm.style.transform = "translate(-50%, -50%)"
+  return true
 }
   
 function explode(x, y) {
@@ -68,12 +90,10 @@ function explode(x, y) {
 
 
 
-window.onload = function() {
-    showNameForm()  
-    var chicken = document.getElementById("chicken")
-    chickenFunction()
-    window.addEventListener('mousemove',cursor)
-    chicken.addEventListener("click", (e) => {
-        explode(e.pageX, e.pageY);
-    })
-} 
+
+window.onload = async function() {
+  var chicken = document.getElementById("chicken")
+  showNameForm()
+  let submitbutton = document.getElementById("form-submit-button")
+  await submitbutton.addEventListener("click", closeNameForm)
+}

@@ -21,6 +21,7 @@ body {
   transform: translate(-50%, -50%);
   z-index: 1;
   margin: 0;
+  opacity: 0;
 }
 
 .cursor {
@@ -29,6 +30,7 @@ body {
   z-index: 2;
   pointer-events: none;
   cursor: none;
+  opacity: 0;
 }
 
 .explosion {
