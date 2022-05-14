@@ -3,13 +3,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
   font-family: "Roboto Mono", monospace;
   color: #000;
 }
 
 body {
-  cursor: none;
   background: #fff;
   height: 100vh;
 }

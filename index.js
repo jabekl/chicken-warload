@@ -36,7 +36,6 @@ function getTop3() {
   fetch(url)
   .then(response => response.json())
   .then(function(data) {
-    console.log(data)
     for(let i = 0; i < data.length; i++){
       document.getElementById(`top${i + 1}`).innerText = data[i].name + " : " + data[i].points
   }});
@@ -54,6 +53,7 @@ function closeNameForm() {
     chicken.addEventListener("click", (e) => {
       explode(e.pageX, e.pageY);
     })
+    document.querySelector("body").style.cursor = "none"
     chickenFunction()
   } else {
     showNameForm()
