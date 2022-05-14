@@ -26,3 +26,9 @@ Es gibt zwei Komponenten für das Spiel: Einmal die Website an sich, die über G
 |           |                          | Website    |                           |  FastApi   |
 |___________|                          |____________|                           |____________|
 ```
+
+## Die Programmierer
+              Github: [Luftiger](https://github.com/Luftiger) 
+              Github: [Jabekl](https://github.com/jabekl)
+            
+
