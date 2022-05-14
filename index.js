@@ -41,7 +41,7 @@ function getTop3() {
   .then(function(data) {
     console.log(data)
     for(let i = 0; i < data.length; i++){
-      document.getElementById(`top${i + 1}`).innerText = data[i]
+      document.getElementById(`top${i + 1}`).innerText = data[i].name + " : " + data[i].points
   }});
 }
 
