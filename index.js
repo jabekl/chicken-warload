@@ -2,13 +2,10 @@ var mouseCursor = document.querySelector('.cursor');
 var counter = document.getElementById("counter")
 var nameForm = document.getElementById("name-form")
 
-var SETNAME = false
+var username;
 
 function chickenFunction() {
   chicken.style.opacity = 1;
-  chicken.addEventListener("click", (e) => {
-    explode(e.pageX, e.pageY);
-  })
   // position chicken
   let random1 = Math.floor(Math.random() * (document.documentElement.clientHeight - 50)).toString()
   let random2 = Math.floor(Math.random() * (document.documentElement.clientWidth - 50)).toString()
@@ -17,11 +14,28 @@ function chickenFunction() {
 
 }
 
+async function submitPoints() {
+  let windowUrl = window.location.href.split(":")
+  let url = windowUrl[0] + ":" + windowUrl[1] + ":5000/top-3-post"
+
+  const postData = {
+    "name" : username,
+    "points" : Number(counter.innerText)
+  }
+
+  const respose = await (await fetch(url, {
+    method: "post",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  })).json()
+  console.log(respose)
+}
+
 function getTop3() {
-  //let url = `http://${window.location.href}:5000/`
   let windowUrl = window.location.href.split(":")
   let url = windowUrl[0] + ":" + windowUrl[1] + ":5000/top-3"
-  console.log(url)
   fetch(url)
   .then(response => response.json())
   .then(function(data) {
@@ -35,10 +49,13 @@ function closeNameForm() {
   nameForm.style.top = "0%";
   nameForm.style.left = "0%";
   nameForm.style.transform = "translate(-100%, -100%)"
-  const username = document.getElementById("username-input").value
+  username = document.getElementById("username-input").value
   getTop3()
   mouseCursor.style.opacity = 1;
   window.addEventListener('mousemove',cursor)
+  chicken.addEventListener("click", (e) => {
+    explode(e.pageX, e.pageY);
+  })
   chickenFunction()
 }
 
@@ -82,14 +99,11 @@ function explode(x, y) {
     }
     counter.innerText = Number(counter.innerText) + 1
     chickenFunction()
-  }
+}
   
-  function rand(min, max) {
+function rand(min, max) {
     return Math.floor(Math.random() * (max + 1)) + min;
-  }
-
-
-
+}
 
 window.onload = async function() {
   var chicken = document.getElementById("chicken")
