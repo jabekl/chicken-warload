@@ -28,7 +28,8 @@ Es gibt zwei Komponenten für das Spiel: Einmal die Website an sich, die über G
 ```
 
 ## Die Programmierer
-              Github: [Luftiger](https://github.com/Luftiger) 
-              Github: [Jabekl](https://github.com/jabekl)
+
+Github: [Luftiger](https://github.com/Luftiger) 
+Github: [Jabekl](https://github.com/jabekl)
             
 
