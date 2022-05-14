@@ -1,3 +1,7 @@
 # CHICKEN WARLORD
 
-Kriege ich dafür ne extra gute Note???
+Inhalt:
+
+- Was ist das Spiel fpr ein Spiel?
+- Wie ist das Programm aufgebaut?
+- Die Programmierer
