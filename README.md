@@ -17,3 +17,11 @@ Chicken Warlord ist ein sehr einfaches Spiel. Man hat eine Knarre, die sich mit 
 ## Wie ist das Programm aufgebaut?
 
 Es gibt zwei Komponenten für das Spiel: Einmal die Website an sich, die über Github Pages gehostet wird. Diese ist ausschließlich in Vanilla Javascript, HTML und CSS geschrieben. Die zweite Komponente ist das Backend, in dem Falle eine API mit einer Datenbank. Hier wird die Sprache Python mit dem Modul FastAPI verwendet und als Datenbank benutzen wir SQLite. Betrieben wird diese API bei [Heroku](https://www.heroku.com/). Hier nochmal eine Zeichnung: 
+
+`___________                            ____________                             ____________        
+|           |                          |  Github    |                           |   Heroku   |
+|  Client   |          https           |   Pages    |         https             |            |
+| Webbrowser|--------------------------|            |---------------------------|   Python   |
+|           |                          | Website    |                           |  FastApi   |
+|___________|                          |____________|                           |____________|
+`
