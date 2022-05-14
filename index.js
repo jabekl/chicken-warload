@@ -29,7 +29,6 @@ async function submitPoints() {
     },
     body: JSON.stringify(postData),
   })).json()
-  console.log(respose)
 }
 
 function getTop3() {
@@ -44,17 +43,21 @@ function getTop3() {
 }
 
 function closeNameForm() {
-  nameForm.style.top = "0%";
-  nameForm.style.left = "0%";
-  nameForm.style.transform = "translate(-100%, -100%)"
   username = document.getElementById("username-input").value
-  getTop3()
-  mouseCursor.style.opacity = 1;
-  window.addEventListener('mousemove',cursor)
-  chicken.addEventListener("click", (e) => {
-    explode(e.pageX, e.pageY);
-  })
-  chickenFunction()
+  if (username != "") {
+    nameForm.style.top = "0%";
+    nameForm.style.left = "0%";
+    nameForm.style.transform = "translate(-100%, -100%)"
+    getTop3()
+    mouseCursor.style.opacity = 1;
+    window.addEventListener('mousemove',cursor)
+    chicken.addEventListener("click", (e) => {
+      explode(e.pageX, e.pageY);
+    })
+    chickenFunction()
+  } else {
+    showNameForm()
+  }
 }
 
 function cursor(e){
@@ -67,7 +70,6 @@ function showNameForm() {
   nameForm.style.top = "50%";
   nameForm.style.left = "50%";
   nameForm.style.transform = "translate(-50%, -50%)"
-  return true
 }
   
 function explode(x, y) {
