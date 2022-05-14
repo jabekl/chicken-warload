@@ -75,6 +75,10 @@ body {
   width: 10%;
 }
 
+.list-item {
+  list-style-type: decimal;
+}
+
 /* name form styles */
 
 #name-form {

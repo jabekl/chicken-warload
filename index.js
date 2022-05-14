@@ -15,7 +15,6 @@ function chickenFunction() {
 }
 
 async function submitPoints() {
-  let windowUrl = window.location.href.split(":")
   let url = "https://chicken-warlord-api.herokuapp.com/top-3-post"
 
   const postData = {
@@ -34,7 +33,6 @@ async function submitPoints() {
 }
 
 function getTop3() {
-  let windowUrl = window.location.href.split(":")
   let url = "https://chicken-warlord-api.herokuapp.com/"
   fetch(url)
   .then(response => response.json())
