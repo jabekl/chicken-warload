@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Warlord</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <img src="images/chicken_128.png" alt="Chicken" id="chicken">
+    <img src="images/assault-rifle_64.png" alt="Gun" id="cursor-image" class="cursor">
+    <div id="counter-container">Total 🐓: <div id="counter">0</div></div>
+    
+    <div class="list-container">
+        <p>Top 3 List:</p>
+        <ul>
+            <li class="list-item" id="top1">Raphael</li>
+            <li class="list-item" id="top2">Benedict</li>
+            <li class="list-item" id="top3">Tim</li>
+        </ul>
+    </div>
+
+    <div id="name-form">
+        <p>Wie heißt du, Chicken Jäger?</p>
+        <input type="text" id="username-input" name="name" placeholder="Chickenjäger 123">
+        <input type="submit" id="form-submit-button" value="Namen absenden du Chicken!">
+    </div>
+    
+    
+    <button onclick="submitPoints()">SUBMIT</button>
+    <script src="index.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+</html>
