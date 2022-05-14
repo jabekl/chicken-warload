@@ -1,6 +1,6 @@
 # CHICKEN WARLORD
 
-==LINK ZUM SPIEL: [CHICKEN WARLORD](https://jabekl.github.io/chicken-warload/)==
+LINK ZUM SPIEL: [CHICKEN WARLORD](https://jabekl.github.io/chicken-warload/)
 
 Inhalt:
 
