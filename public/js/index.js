@@ -1,18 +1,42 @@
 var mouseCursor = document.querySelector('.cursor');
 var counter = document.getElementById("counter")
 var nameForm = document.getElementById("name-form")
+var looseScreen = document.getElementById("loose-screen")
+
+let loose = false
 
 var username;
 
 function chickenFunction() {
+  if (loose) {
+    chicken.style.opacity = 0;
+    console.log("lost")
+  }
   chicken.style.opacity = 1;
   // position chicken
   let random1 = Math.floor(Math.random() * (document.documentElement.clientHeight - 50)).toString()
   let random2 = Math.floor(Math.random() * (document.documentElement.clientWidth - 50)).toString()
   chicken.style.top = random1 + "px"
   chicken.style.left = random2 + "px"
+  
+  console.log("Chicken FUnction")
 
+
+  // body add event listener
+  document.body.addEventListener("click", (event) => {
+    if (event.target.id == "chicken") {
+      console.log(false, event.target.id)
+    } else if ( event.target.id == "form-submit-button") {
+      console.log(false, event.target.id)
+    } else if ( event.target.id == "play-again-button") {
+      console.log(false, event.target.id)
+    } else {
+      showLooseScreen()
+    }
+  })
 }
+
+//API FUNCTIONS
 
 async function submitPoints() {
   let url = "https://chicken-warlord-api.herokuapp.com/top-3-post"
@@ -49,6 +73,14 @@ async function getApiKey() {
   return await (await fetch("/apikey")).json()
 }
 
+// NAME FORM FUNCTIONS
+
+function showNameForm() {
+  nameForm.style.top = "50%";
+  nameForm.style.left = "50%";
+  nameForm.style.transform = "translate(-50%, -50%)"
+}
+
 function closeNameForm() {
   username = document.getElementById("username-input").value
   if (username != "") {
@@ -68,16 +100,35 @@ function closeNameForm() {
   }
 }
 
+//LOOSE SCREEN FUNCTIONS
+
+async function showLooseScreen() {
+  loose = true
+  chicken.style.opacity = 0;
+  looseScreen.style.top = "50%";
+  looseScreen.style.left = "50%";
+  looseScreen.style.transform = "translate(-50%, -50%)"
+  document.getElementById("loose-punkte").innerText = `Punkte: ${counter.innerText}`
+  console.log(username, counter.innerText)
+  let submitbutton = document.getElementById("play-again-button")
+  await submitbutton.addEventListener("click", playAgain)
+}
+
+function playAgain() {
+  looseScreen.style.top = "0%";
+  looseScreen.style.left = "0%";
+  looseScreen.style.transform = "translate(-100%, -100%)"
+  loose = false
+  counter.innerText = 0;
+  chickenFunction()
+}
+
+// GAME FUNCTIONALLITY FUNCTIONS
+
 function cursor(e){
 	mouseCursor.style.top = e.pageY + 'px';
 	mouseCursor.style.left = e.pageX + 'px';
 
-}
-
-function showNameForm() {
-  nameForm.style.top = "50%";
-  nameForm.style.left = "50%";
-  nameForm.style.transform = "translate(-50%, -50%)"
 }
   
 function explode(x, y) {
@@ -108,7 +159,9 @@ function explode(x, y) {
     counter.innerText = Number(counter.innerText) + 1
     chickenFunction()
 }
-  
+
+//OTHERS
+
 function rand(min, max) {
     return Math.floor(Math.random() * (max + 1)) + min;
 }

@@ -122,3 +122,31 @@ body {
 #name-form input[type="submit"]:hover {
   background-color: #fff;
 }
+
+/* Loose screen styles*/
+#loose-screen {
+  border: #000 solid 2px;
+  background: rgb(255, 187, 0);
+  width: 20%;
+  height: 20%;
+  z-index: 10;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: default;
+  top: 0%;
+  left: 0%;
+  transform: translate(-100%, -100%);
+}
+
+#loose-screen input[type="submit"] {
+  cursor: default;
+  height: 20%;
+  width: 65%;
+  text-align: center;
+  border: none;
+  border-radius: 1.5em;
+  background-color: #fff;
+}
