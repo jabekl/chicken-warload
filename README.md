@@ -29,5 +29,7 @@ Es gibt zwei Komponenten für das Spiel: Einmal die Website an sich, die einen [
 
 ## Die Programmierer
 
-Github: [Luftiger](https://github.com/Luftiger) --- Backend, Datenbank  
-Github: [Jabekl](https://github.com/jabekl) --- Frontend, Websitehosting
+Github: [Luftiger](https://github.com/Luftiger) --- FastApi-Backend, Datenbank  
+Github: [Jabekl](https://github.com/jabekl) --- Frontend, Websitehosting, Express-Server
+
+Vielen Dank auch nochmal an die Religruppe 9b/c und herr Tr für die grandiose Idee!
