@@ -38,14 +38,14 @@ function chickenFunction() {
 
 //API FUNCTIONS
 
-async function submitPoints() {
+async function submitPoints(points, name) {
   let url = "https://chicken-warlord-api.herokuapp.com/top-3-post"
   const postData = {
-    "name" : username,
-    "points" : Number(counter.innerText)
+    "name" : name,
+    "points" : points
   }
 
-  const respose = await (await fetch(url, {
+  const response = await (await fetch(url, {
     method: "post",
     headers: {
       'Content-Type': 'application/json',
@@ -53,6 +53,7 @@ async function submitPoints() {
     },
     body: JSON.stringify(postData),
   })).json()
+  console.log(response)
 }
 
 async function getTop3() {
@@ -109,17 +110,18 @@ async function showLooseScreen() {
   looseScreen.style.left = "50%";
   looseScreen.style.transform = "translate(-50%, -50%)"
   document.getElementById("loose-punkte").innerText = `Punkte: ${counter.innerText}`
-  console.log(username, counter.innerText)
+  submitPoints(counter.innerText, username)
   let submitbutton = document.getElementById("play-again-button")
   await submitbutton.addEventListener("click", playAgain)
 }
 
-function playAgain() {
+async function playAgain() {
   looseScreen.style.top = "0%";
   looseScreen.style.left = "0%";
   looseScreen.style.transform = "translate(-100%, -100%)"
   loose = false
   counter.innerText = 0;
+  await getTop3() 
   chickenFunction()
 }
 
