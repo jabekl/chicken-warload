@@ -16,7 +16,6 @@ function chickenFunction() {
 
 async function submitPoints() {
   let url = "https://chicken-warlord-api.herokuapp.com/top-3-post"
-
   const postData = {
     "name" : username,
     "points" : Number(counter.innerText)
@@ -26,19 +25,28 @@ async function submitPoints() {
     method: "post",
     headers: {
       'Content-Type': 'application/json',
+      "Authorization" : await getApiKey()
     },
     body: JSON.stringify(postData),
   })).json()
 }
 
-function getTop3() {
+async function getTop3() {
   let url = "https://chicken-warlord-api.herokuapp.com/"
-  fetch(url)
+  fetch(url, {
+    headers: {
+      "Authorization" : await getApiKey()
+    }
+  })
   .then(response => response.json())
   .then(function(data) {
     for(let i = 0; i < data.length; i++){
       document.getElementById(`top${i + 1}`).innerText = data[i].name + " : " + data[i].points
   }});
+}
+
+async function getApiKey() {
+  return await (await fetch("/apikey")).json()
 }
 
 function closeNameForm() {
