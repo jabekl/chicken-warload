@@ -20,10 +20,10 @@ Es gibt zwei Komponenten für das Spiel: Einmal die Website an sich, die einen [
 
 ```
  ___________                            ____________                             ____________
-|           |                          |  Express   |                           |   Heroku   |
+|           |                          |            |                           |   Heroku   |
 |  Client   |          https           |   Heroku   |         https             |            |
-| Webbrowser|--------------------------|            |---------------------------|   Python   |
-|           |                          | Website    |                           |  FastApi   |
+| Webbrowser|--------------------------|  Express   |---------------------------|   Python   |
+|           |                          |  Website   |                           |  FastApi   |
 |___________|                          |____________|                           |____________|
 ```
 
